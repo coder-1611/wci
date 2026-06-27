@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;-webkit-font-smoothing:antialiased;}
+  ::selection{background:#f6a324;color:#15132f;}
+  @keyframes wci-pulse{0%,100%{opacity:.5;}50%{opacity:1;}}
+</style>
+</helmet>
+<div data-screen-label="About" style="--navy:#15132f;--navy2:#1e1b43;--navy3:#262252;--gold:#f6a324;--gold2:#ffc566;--azure:#2f7fc0;--cream:#f6f1e7;--paper:#fbf9f4;--ink:#1b1838;--muted:#6b6780; font-family:'Hanken Grotesk',system-ui,sans-serif; color:var(--ink); background:var(--paper); overflow-x:hidden; position:relative;">
+
+  <!-- NAV -->
+  <nav data-nav style="position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px clamp(20px,5vw,68px);transition:background .4s,padding .4s,box-shadow .4s;background:rgba(21,19,47,.92);backdrop-filter:blur(14px);box-shadow:0 8px 30px rgba(0,0,0,.28);">
+    <a href="Home.dc.html" style="display:flex;align-items:center;gap:13px;text-decoration:none;">
+      <span style="width:46px;height:46px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.25);"><img src="img/logo-youth-sq.png" alt="WCI Academy" style="width:118%;height:118%;object-fit:contain;"></span>
+      <span style="display:flex;flex-direction:column;line-height:.92;">
+        <span style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:22px;letter-spacing:-.5px;color:#fff;">WCI <span style="color:var(--gold);">ACADEMY</span></span>
+        <span style="font-family:'Archivo';font-weight:700;font-size:8.5px;letter-spacing:2.4px;color:rgba(255,255,255,.65);">YOUTH CRICKET · HIGH-PERFORMANCE</span>
+      </span>
+    </a>
+    <div style="display:flex;align-items:center;gap:clamp(18px,2.4vw,38px);">
+      <div data-navlinks style="display:flex;align-items:center;gap:clamp(13px,1.6vw,26px);">
+        <a href="Home.dc.html" style="font-family:'Archivo';font-weight:700;font-size:13.5px;letter-spacing:.4px;text-transform:uppercase;text-decoration:none;color:rgba(255,255,255,.78);">Home</a>
+        <a href="About.dc.html" style="font-family:'Archivo';font-weight:700;font-size:13.5px;letter-spacing:.4px;text-transform:uppercase;text-decoration:none;color:#fff;">About &amp; Coaches</a>
+        <a href="Programs.dc.html" style="font-family:'Archivo';font-weight:700;font-size:13.5px;letter-spacing:.4px;text-transform:uppercase;text-decoration:none;color:rgba(255,255,255,.78);">Programs</a>
+        <a href="Locations.dc.html" style="font-family:'Archivo';font-weight:700;font-size:13.5px;letter-spacing:.4px;text-transform:uppercase;text-decoration:none;color:rgba(255,255,255,.78);">Locations</a>
+        <a href="Resources.dc.html" style="font-family:'Archivo';font-weight:700;font-size:13.5px;letter-spacing:.4px;text-transform:uppercase;text-decoration:none;color:rgba(255,255,255,.78);">Resources</a>
+        <a href="Register.dc.html" style="font-family:'Archivo';font-weight:700;font-size:13.5px;letter-spacing:.4px;text-transform:uppercase;text-decoration:none;color:rgba(255,255,255,.78);">Contact</a>
+      </div>
+      <a href="Register.dc.html" data-cta-nav style="font-family:'Archivo';font-weight:800;font-size:13.5px;letter-spacing:.3px;text-transform:uppercase;text-decoration:none;color:var(--navy);background:var(--gold);padding:12px 22px;border-radius:40px;box-shadow:0 6px 22px rgba(246,163,36,.4);transition:transform .2s,box-shadow .2s;" style-hover="transform:translateY(-2px);box-shadow:0 10px 30px rgba(246,163,36,.55);">Book a Free Tryout</a>
+      <button data-menu-toggle aria-label="Menu" style="display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;">
+        <span style="width:26px;height:2.5px;background:#fff;border-radius:2px;"></span><span style="width:26px;height:2.5px;background:#fff;border-radius:2px;"></span><span style="width:26px;height:2.5px;background:#fff;border-radius:2px;"></span>
+      </button>
+    </div>
+  </nav>
+  <div data-menu style="position:fixed;inset:0;z-index:99;background:linear-gradient(160deg,var(--navy2),var(--navy));display:flex;flex-direction:column;justify-content:center;gap:8px;padding:0 32px;transform:translateX(100%);transition:transform .45s cubic-bezier(.6,0,.2,1);">
+    <a href="Home.dc.html" style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:34px;color:rgba(255,255,255,.8);text-decoration:none;padding:10px 0;">Home</a>
+    <a href="About.dc.html" style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:34px;color:#fff;text-decoration:none;padding:10px 0;">About &amp; Coaches</a>
+    <a href="Programs.dc.html" style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:34px;color:rgba(255,255,255,.8);text-decoration:none;padding:10px 0;">Programs</a>
+    <a href="Locations.dc.html" style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:34px;color:rgba(255,255,255,.8);text-decoration:none;padding:10px 0;">Locations</a>
+    <a href="Resources.dc.html" style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:34px;color:rgba(255,255,255,.8);text-decoration:none;padding:10px 0;">Resources</a>
+    <a href="Register.dc.html" style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:34px;color:var(--gold);text-decoration:none;padding:10px 0;">Book a Free Tryout</a>
+  </div>
+
+  <!-- HERO -->
+  <header style="position:relative;background:var(--navy);overflow:hidden;padding:150px clamp(20px,5vw,68px) 96px;">
+    <img src="img/train-fastbowling.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.2;">
+    <div style="position:absolute;inset:0;background:radial-gradient(120% 120% at 80% 0%,rgba(38,34,82,.5),var(--navy2) 55%,var(--navy));"></div>
+    <div style="position:absolute;right:-140px;top:-100px;width:520px;height:520px;border-radius:50%;border:2px dashed rgba(246,163,36,.16);"></div>
+    <div style="position:relative;z-index:2;max-width:1320px;margin:0 auto;">
+      <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(246,163,36,.12);border:1px solid rgba(246,163,36,.35);padding:8px 16px;border-radius:40px;margin-bottom:22px;">
+        <span style="width:7px;height:7px;border-radius:50%;background:var(--gold);animation:wci-pulse 2s infinite;"></span>
+        <span style="font-family:'Archivo';font-weight:700;font-size:12px;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold2);">Founded 2021 · Austin, TX</span>
+      </div>
+      <h1 style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:clamp(40px,5.4vw,82px);line-height:.92;letter-spacing:-.025em;color:#fff;margin:0 0 22px;text-transform:uppercase;max-width:16ch;">Built for high-<span style="color:var(--gold);">performance</span></h1>
+      <p style="font-size:clamp(16px,1.4vw,20px);line-height:1.6;color:rgba(255,255,255,.78);max-width:660px;margin:0;">WCI Academy turns young cricket enthusiasts into high-performance talents — guided by world-class coaches, backed by USA Cricket, and powered by Gary Kirsten Cricket &amp; CoachED.</p>
+    </div>
+  </header>
+
+  <!-- STORY -->
+  <section style="max-width:1320px;margin:0 auto;padding:clamp(70px,9vw,120px) clamp(20px,5vw,68px);">
+    <div data-grid data-cols-sm="1fr" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+      <div data-reveal>
+        <div style="font-family:'Archivo';font-weight:800;font-size:13px;letter-spacing:2.4px;text-transform:uppercase;color:var(--gold);margin-bottom:18px;">Our story</div>
+        <h2 style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:clamp(30px,3.6vw,48px);line-height:1;letter-spacing:-.02em;color:var(--ink);margin:0 0 22px;text-transform:uppercase;">A winning environment, on &amp; off the field</h2>
+        <p style="font-size:16.5px;line-height:1.65;color:var(--muted);margin:0 0 16px;">Founded in 2021 by Level-4 Elite Coach <strong style="color:var(--ink);">Alok Singh</strong>, WCI Academy provides a positive, healthy environment where young players flourish and excel. We're a registered youth academy of USA Cricket — recognized by the ICC and USOC.</p>
+        <p style="font-size:16.5px;line-height:1.65;color:var(--muted);margin:0 0 16px;">Whichever age-group you play in, players don't just improve skills and temperament — they build a winning mindset, leadership, and the confidence to succeed on and off the field, and find friends for life.</p>
+        <p style="font-size:16.5px;line-height:1.65;color:var(--muted);margin:0;">In 2025 we partnered with <strong style="color:var(--ink);">Super Kings Academy</strong> — the official youth academy of IPL's Chennai Super Kings — to open a world-class High-Performance Center in Austin.</p>
+      </div>
+      <div data-reveal data-reveal-delay="120" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div style="border-radius:18px;aspect-ratio:1/1.1;overflow:hidden;"><img src="img/train-batting.jpg" alt="Batting session" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div style="border-radius:18px;aspect-ratio:1/1.1;background:linear-gradient(160deg,var(--gold),#e07d12);display:flex;flex-direction:column;justify-content:flex-end;padding:20px;margin-top:30px;">
+          <div style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:34px;color:var(--navy);line-height:1;">2021</div>
+          <div style="font-family:'Archivo';font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:rgba(21,19,47,.7);margin-top:4px;">Founded in Austin</div>
+        </div>
+        <div style="border-radius:18px;aspect-ratio:1/1.1;background:var(--navy2);display:flex;flex-direction:column;justify-content:flex-end;padding:20px;margin-top:-14px;">
+          <div style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:22px;color:#fff;line-height:1;">USA Cricket</div>
+          <div style="font-family:'Archivo';font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-top:4px;">Registered youth academy</div>
+        </div>
+        <div style="border-radius:18px;aspect-ratio:1/1.1;overflow:hidden;margin-top:16px;"><img src="img/medals.jpg" alt="Medal ceremony" style="width:100%;height:100%;object-fit:cover;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDIBILITY -->
+  <section style="background:linear-gradient(135deg,var(--navy2),var(--navy));position:relative;overflow:hidden;">
+    <div style="position:absolute;right:-120px;top:50%;transform:translateY(-50%);width:460px;height:460px;border-radius:50%;border:2px dashed rgba(246,163,36,.12);"></div>
+    <div style="max-width:1320px;margin:0 auto;padding:clamp(64px,8vw,110px) clamp(20px,5vw,68px);position:relative;z-index:2;">
+      <div style="text-align:center;margin-bottom:54px;" data-reveal>
+        <div style="font-family:'Archivo';font-weight:800;font-size:13px;letter-spacing:2.4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">World-class pedigree</div>
+        <h2 style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:clamp(30px,4vw,54px);color:#fff;margin:0 auto;text-transform:uppercase;letter-spacing:-.02em;max-width:18ch;">Backed by the best in the game</h2>
+      </div>
+      <div data-grid data-cols-sm="1fr" style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;">
+        <div data-reveal style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:32px;">
+          <span style="display:inline-flex;width:50px;height:50px;border-radius:12px;background:var(--gold);align-items:center;justify-content:center;font-family:'Archivo';font-style:italic;font-weight:900;font-size:20px;color:var(--navy);margin-bottom:18px;">GK</span>
+          <h3 style="font-family:'Archivo';font-weight:800;font-size:20px;color:#fff;margin:0 0 10px;">Gary Kirsten Cricket</h3>
+          <p style="font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.66);margin:0;">Mentored &amp; guided by the World-Cup and IPL-winning coach. Our coaches are CoachED-certified from Level-2 to Level-4 Elite.</p>
+        </div>
+        <div data-reveal data-reveal-delay="100" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:32px;">
+          <span style="display:inline-flex;width:50px;height:50px;border-radius:12px;background:var(--azure);align-items:center;justify-content:center;font-family:'Archivo';font-weight:900;font-size:20px;color:#fff;margin-bottom:18px;">AI</span>
+          <h3 style="font-family:'Archivo';font-weight:800;font-size:20px;color:#fff;margin:0 0 10px;">CoachED &amp; AI tools</h3>
+          <p style="font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.66);margin:0;">We use CoachED's AI tools to evaluate every player's performance and recommend personalized drills inside their Individual Development Plan.</p>
+        </div>
+        <div data-reveal data-reveal-delay="200" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:32px;">
+          <span style="display:inline-flex;width:50px;height:50px;border-radius:12px;background:#fff;align-items:center;justify-content:center;font-family:'Archivo';font-style:italic;font-weight:900;font-size:18px;color:var(--navy);margin-bottom:18px;">SKA</span>
+          <h3 style="font-family:'Archivo';font-weight:800;font-size:20px;color:#fff;margin:0 0 10px;">Super Kings Academy</h3>
+          <p style="font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.66);margin:0;">A strategic partnership with CSK's official youth academy powers our Austin High-Performance Center — indoor lanes &amp; premium turf.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACADEMY COACHES -->
+  <section style="max-width:1320px;margin:0 auto;padding:clamp(70px,9vw,120px) clamp(20px,5vw,68px) clamp(30px,4vw,50px);">
+    <div style="margin-bottom:40px;" data-reveal>
+      <div style="font-family:'Archivo';font-weight:800;font-size:13px;letter-spacing:2.4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">The coaching team</div>
+      <h2 style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:clamp(32px,4vw,56px);line-height:.98;letter-spacing:-.02em;color:var(--ink);margin:0;text-transform:uppercase;">Academy coaches</h2>
+    </div>
+    <div data-grid data-cols-sm="repeat(2,1fr)" style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;">
+      <div data-reveal style="border-radius:18px;overflow:hidden;background:#fff;border:1px solid rgba(27,24,56,.08);box-shadow:0 6px 28px rgba(27,24,56,.05);transition:transform .3s,box-shadow .3s;" style-hover="transform:translateY(-6px);box-shadow:0 20px 50px rgba(27,24,56,.14);">
+        <div style="aspect-ratio:4/3;background:#1c1942;position:relative;overflow:hidden;"><img src="img/coach-alok.jpg" alt="Alok Singh" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;"><span style="position:absolute;left:16px;bottom:16px;font-family:'Archivo';font-weight:800;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:5px 10px;border-radius:30px;">Founder · Head Coach</span></div>
+        <div style="padding:20px;"><div style="font-family:'Archivo';font-weight:800;font-size:19px;color:var(--ink);">Alok Singh</div><div style="font-size:13.5px;line-height:1.5;color:var(--muted);margin-top:6px;">Level-4 Elite Coach (CoachED by Gary Kirsten). USA Cricket Volunteer Youth Coordinator for Central Texas. Played junior state &amp; inter-varsity cricket in India.</div></div>
+      </div>
+      <div data-reveal data-reveal-delay="70" style="border-radius:18px;overflow:hidden;background:#fff;border:1px solid rgba(27,24,56,.08);box-shadow:0 6px 28px rgba(27,24,56,.05);transition:transform .3s,box-shadow .3s;" style-hover="transform:translateY(-6px);box-shadow:0 20px 50px rgba(27,24,56,.14);">
+        <div style="aspect-ratio:4/3;background:#1c1942;position:relative;overflow:hidden;"><img src="img/coach-ryan.jpg" alt="Ryan Van Niekerk" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;"><span style="position:absolute;left:16px;bottom:16px;font-family:'Archivo';font-weight:800;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:#fff;background:var(--azure);padding:5px 10px;border-radius:30px;">Coaching Director · GKC</span></div>
+        <div style="padding:20px;"><div style="font-family:'Archivo';font-weight:800;font-size:19px;color:var(--ink);">Ryan Van Niekerk</div><div style="font-size:13.5px;line-height:1.5;color:var(--muted);margin-top:6px;">Coaching Director at Gary Kirsten Cricket &amp; co-founder of CoachED. 14 years of experience building academies in South Africa &amp; India. Guides players via virtual sessions &amp; video analysis.</div></div>
+      </div>
+      <div data-reveal data-reveal-delay="140" style="border-radius:18px;overflow:hidden;background:#fff;border:1px solid rgba(27,24,56,.08);box-shadow:0 6px 28px rgba(27,24,56,.05);transition:transform .3s,box-shadow .3s;" style-hover="transform:translateY(-6px);box-shadow:0 20px 50px rgba(27,24,56,.14);">
+        <div style="aspect-ratio:4/3;background:#1c1942;position:relative;overflow:hidden;"><img src="img/coach-burt.jpg" alt="Burt Cockley" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;"><span style="position:absolute;left:16px;bottom:16px;font-family:'Archivo';font-weight:800;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:#fff;background:var(--azure);padding:5px 10px;border-radius:30px;">S&amp;C &amp; Cricket Coach</span></div>
+        <div style="padding:20px;"><div style="font-family:'Archivo';font-weight:800;font-size:19px;color:var(--ink);">Burt Cockley</div><div style="font-size:13.5px;line-height:1.5;color:var(--muted);margin-top:6px;">Former Australian fast bowler (First Class for NSW; IPL Kings XI Punjab). NSCA CSCS &amp; Cricket Australia certified. Runs a structured S&amp;C &amp; hybrid coaching model.</div></div>
+      </div>
+      <div data-reveal style="border-radius:18px;overflow:hidden;background:#fff;border:1px solid rgba(27,24,56,.08);box-shadow:0 6px 28px rgba(27,24,56,.05);transition:transform .3s,box-shadow .3s;" style-hover="transform:translateY(-6px);box-shadow:0 20px 50px rgba(27,24,56,.14);">
+        <div style="aspect-ratio:4/3;background:#1c1942;position:relative;overflow:hidden;"><img src="img/coach-josh.jpg" alt="Joshua Tromp" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;"><span style="position:absolute;left:16px;bottom:16px;font-family:'Archivo';font-weight:800;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:#fff;background:var(--azure);padding:5px 10px;border-radius:30px;">MiLC Player-Coach</span></div>
+        <div style="padding:20px;"><div style="font-family:'Archivo';font-weight:800;font-size:19px;color:var(--ink);">Joshua Tromp</div><div style="font-size:13.5px;line-height:1.5;color:var(--muted);margin-top:6px;">South African wicket-keeper / batter. Minor League Cricket player &amp; Emerging Player Award, Houston Premier League 2023. Coaches youth at WCI.</div></div>
+      </div>
+      <div data-reveal data-reveal-delay="70" style="border-radius:18px;overflow:hidden;background:#fff;border:1px solid rgba(27,24,56,.08);box-shadow:0 6px 28px rgba(27,24,56,.05);transition:transform .3s,box-shadow .3s;" style-hover="transform:translateY(-6px);box-shadow:0 20px 50px rgba(27,24,56,.14);">
+        <div style="aspect-ratio:4/3;background:#1c1942;position:relative;overflow:hidden;"><img src="img/coach-matt.jpg" alt="Matthew Tromp" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;"><span style="position:absolute;left:16px;bottom:16px;font-family:'Archivo';font-weight:800;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:#fff;background:var(--azure);padding:5px 10px;border-radius:30px;">MLC / MiLC Player-Coach</span></div>
+        <div style="padding:20px;"><div style="font-family:'Archivo';font-weight:800;font-size:19px;color:var(--ink);">Matthew Tromp</div><div style="font-size:13.5px;line-height:1.5;color:var(--muted);margin-top:6px;">South African pace bowler / batter. Major &amp; Minor League Cricket player. Conducts regular youth coaching sessions at the academy.</div></div>
+      </div>
+      <div data-reveal data-reveal-delay="140" style="border-radius:18px;overflow:hidden;background:var(--navy2);box-shadow:0 6px 28px rgba(27,24,56,.05);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column;justify-content:center;padding:32px;" style-hover="transform:translateY(-6px);box-shadow:0 20px 50px rgba(27,24,56,.2);">
+        <div style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:clamp(26px,2.4vw,34px);color:#fff;line-height:1;text-transform:uppercase;">Mentored by<br><span style="color:var(--gold);">Gary Kirsten</span></div>
+        <p style="font-size:14px;line-height:1.6;color:rgba(255,255,255,.66);margin:16px 0 0;">The World-Cup &amp; IPL-winning coach mentors and guides the academy, and led a webinar on parenting in cricket for WCI families.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUEST PROS -->
+  <section style="max-width:1320px;margin:0 auto;padding:clamp(30px,4vw,50px) clamp(20px,5vw,68px) clamp(70px,9vw,120px);">
+    <div style="margin-bottom:34px;" data-reveal>
+      <div style="font-family:'Archivo';font-weight:800;font-size:13px;letter-spacing:2.4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">Special clinics</div>
+      <h2 style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:clamp(28px,3.4vw,46px);line-height:.98;letter-spacing:-.02em;color:var(--ink);margin:0;text-transform:uppercase;max-width:22ch;">World-cup winners run our guest clinics</h2>
+    </div>
+    <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;">
+      <div style="background:#fff;border-radius:14px;overflow:hidden;border:1px solid rgba(27,24,56,.08);box-shadow:0 4px 18px rgba(27,24,56,.05);">
+        <div style="aspect-ratio:1/1;background:#1c1942;overflow:hidden;"><img src="img/coach-unmukt.jpg" alt="Unmukt Chand" style="width:100%;height:100%;object-fit:cover;object-position:center top;"></div>
+        <div style="padding:12px 13px 14px;"><div style="font-family:'Archivo';font-weight:800;font-size:14.5px;color:var(--ink);">Unmukt Chand</div><div style="font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.35;">U19 World-Cup-winning India captain · MLC. Batting clinics.</div></div>
+      </div>
+      <div style="background:#fff;border-radius:14px;overflow:hidden;border:1px solid rgba(27,24,56,.08);box-shadow:0 4px 18px rgba(27,24,56,.05);">
+        <div style="aspect-ratio:1/1;background:#1c1942;overflow:hidden;"><img src="img/coach-harmeet.jpg" alt="Harmeet Singh" style="width:100%;height:100%;object-fit:cover;object-position:center top;"></div>
+        <div style="padding:12px 13px 14px;"><div style="font-family:'Archivo';font-weight:800;font-size:14.5px;color:var(--ink);">Harmeet Singh</div><div style="font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.35;">USA (ICC T20 WC 2024) · 2012 U19 WC winner. Spin clinics.</div></div>
+      </div>
+      <div style="background:#fff;border-radius:14px;overflow:hidden;border:1px solid rgba(27,24,56,.08);box-shadow:0 4px 18px rgba(27,24,56,.05);">
+        <div style="aspect-ratio:1/1;background:#1c1942;overflow:hidden;"><img src="img/coach-saurabh.jpg" alt="Saurabh Netravalkar" style="width:100%;height:100%;object-fit:cover;object-position:center top;"></div>
+        <div style="padding:12px 13px 14px;"><div style="font-family:'Archivo';font-weight:800;font-size:14.5px;color:var(--ink);">Saurabh Netravalkar</div><div style="font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.35;">Former USA captain · Mumbai Ranji. Pace bowling clinics.</div></div>
+      </div>
+      <div style="background:#fff;border-radius:14px;overflow:hidden;border:1px solid rgba(27,24,56,.08);box-shadow:0 4px 18px rgba(27,24,56,.05);">
+        <div style="aspect-ratio:1/1;background:#1c1942;overflow:hidden;"><img src="img/coach-smit.jpg" alt="Smit Patel" style="width:100%;height:100%;object-fit:cover;object-position:center top;"></div>
+        <div style="padding:12px 13px 14px;"><div style="font-family:'Archivo';font-weight:800;font-size:14.5px;color:var(--ink);">Smit Patel</div><div style="font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.35;">USA Senior Men's team · 2012 U19 WC winner · Gujarat Ranji.</div></div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:14px;color:var(--muted);margin:30px 0 0;">Guest leadership &amp; mentorship sessions have also featured <strong style="color:var(--ink);">Brian Lara</strong> and <strong style="color:var(--ink);">Julia Price</strong> (USA Women's head coach).</p>
+  </section>
+
+  <!-- CTA -->
+  <section style="position:relative;overflow:hidden;background:linear-gradient(120deg,var(--gold) 0%,#ffb347 60%,#ff9e1b 100%);">
+    <div style="position:absolute;right:6%;bottom:-90px;font-family:'Archivo';font-style:italic;font-weight:900;font-size:18vw;color:rgba(21,19,47,.06);line-height:.8;pointer-events:none;">WCI</div>
+    <div style="max-width:1100px;margin:0 auto;padding:clamp(60px,8vw,100px) clamp(20px,5vw,68px);position:relative;z-index:2;text-align:center;" data-reveal>
+      <h2 style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:clamp(32px,4.6vw,64px);line-height:.95;letter-spacing:-.025em;color:var(--navy);margin:0 0 16px;text-transform:uppercase;">Train with coaches who've done it</h2>
+      <p style="font-size:clamp(16px,1.3vw,19px);line-height:1.55;color:rgba(21,19,47,.78);max-width:540px;margin:0 auto 30px;">Come to a free tryout and meet the team that's taken Austin's youth to the national stage.</p>
+      <a href="Register.dc.html" style="font-family:'Archivo';font-weight:800;font-size:15px;letter-spacing:.4px;text-transform:uppercase;text-decoration:none;color:#fff;background:var(--navy);padding:18px 36px;border-radius:46px;box-shadow:0 14px 40px rgba(21,19,47,.3);transition:transform .2s,box-shadow .2s;display:inline-block;" style-hover="transform:translateY(-3px);box-shadow:0 20px 52px rgba(21,19,47,.42);">Book a Free Tryout →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:var(--navy);color:#fff;">
+    <div style="max-width:1320px;margin:0 auto;padding:clamp(56px,7vw,90px) clamp(20px,5vw,68px) 40px;">
+      <div data-grid data-cols-sm="1fr 1fr" style="display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:40px;">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+            <span style="width:42px;height:42px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;"><img src="img/logo-youth-sq.png" alt="WCI Academy" style="width:118%;height:118%;object-fit:contain;"></span>
+            <span style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:20px;color:#fff;">WCI <span style="color:var(--gold);">ACADEMY</span></span>
+          </div>
+          <p style="font-size:14px;line-height:1.6;color:rgba(255,255,255,.55);max-width:34ch;margin:0 0 18px;">Youth Cricket Academy for High-Performance. A registered youth academy of USA Cricket, headquartered in Austin, TX.</p>
+          <div style="display:flex;gap:10px;">
+            <span style="font-family:'Archivo';font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.14);padding:6px 12px;border-radius:30px;">USA Cricket</span>
+            <span style="font-family:'Archivo';font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.14);padding:6px 12px;border-radius:30px;">ICC · USOC</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Archivo';font-weight:800;font-size:12px;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Explore</div>
+          <div style="display:flex;flex-direction:column;gap:11px;">
+            <a href="About.dc.html" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;">About &amp; Coaches</a>
+            <a href="Programs.dc.html" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;">Programs &amp; Pricing</a>
+            <a href="Locations.dc.html" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;">Locations</a>
+            <a href="Resources.dc.html" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;">Resources</a>
+            <a href="Register.dc.html" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;">Register</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Archivo';font-weight:800;font-size:12px;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Follow</div>
+          <div style="display:flex;flex-direction:column;gap:11px;">
+            <a href="https://www.instagram.com/wciacademy/" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;">Instagram</a>
+            <a href="https://www.youtube.com/@wciacademy" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;">YouTube</a>
+            <a href="https://www.facebook.com/WCICricketAcademy/" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;">Facebook</a>
+            <a href="https://www.linkedin.com/company/wcicricket" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;">LinkedIn</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Archivo';font-weight:800;font-size:12px;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Get in touch</div>
+          <a href="mailto:contact@wcicricket.com" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;display:block;margin-bottom:10px;">contact@wcicricket.com</a>
+          <a href="tel:5122003042" style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:22px;color:#fff;text-decoration:none;display:block;margin-bottom:14px;">512-200-3042</a>
+          <a href="Register.dc.html" style="display:inline-block;font-family:'Archivo';font-weight:800;font-size:13px;letter-spacing:.3px;text-transform:uppercase;text-decoration:none;color:var(--navy);background:var(--gold);padding:12px 22px;border-radius:40px;">Book a Free Tryout</a>
+        </div>
+      </div>
+      <div style="margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+        <span style="font-size:12.5px;color:rgba(255,255,255,.4);">© 2026 WCI Academy · World Cricket Initiative. All rights reserved. · Made by Soham Sthitpragya</span>
+        <span style="font-size:12.5px;color:rgba(255,255,255,.4);">Powered by Gary Kirsten Cricket &amp; CoachED · In partnership with Super Kings Academy</span>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const q = (s) => Array.from(document.querySelectorAll(s));
+    const nav = document.querySelector('[data-nav]');
+    const onScroll = () => {
+      const y = window.scrollY || window.pageYOffset;
+      if (nav) {
+        if (y > 30) { nav.style.background='rgba(21,19,47,.92)'; nav.style.backdropFilter='blur(14px)'; nav.style.boxShadow='0 8px 30px rgba(0,0,0,.28)'; nav.style.paddingTop='12px'; nav.style.paddingBottom='12px'; }
+        else { nav.style.background='rgba(21,19,47,.92)'; nav.style.boxShadow='0 8px 30px rgba(0,0,0,.28)'; nav.style.paddingTop='14px'; nav.style.paddingBottom='14px'; }
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true }); onScroll(); this._onScroll = onScroll;
+
+    const menu = document.querySelector('[data-menu]');
+    const toggle = document.querySelector('[data-menu-toggle]');
+    if (toggle && menu) {
+      let open = false;
+      const set = (v) => { open = v; menu.style.transform = v ? 'translateX(0)' : 'translateX(100%)'; };
+      toggle.addEventListener('click', () => set(!open));
+      menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => set(false)));
+    }
+
+    const applyResponsive = () => {
+      const small = window.innerWidth < 1000;
+      const links = document.querySelector('[data-navlinks]');
+      const ctaNav = document.querySelector('[data-cta-nav]');
+      if (links) links.style.display = small ? 'none' : 'flex';
+      if (ctaNav) ctaNav.style.display = small ? 'none' : 'inline-flex';
+      if (toggle) toggle.style.display = small ? 'flex' : 'none';
+      q('[data-grid]').forEach((e) => { if (e.dataset.colsLg === undefined) e.dataset.colsLg = e.style.gridTemplateColumns || ''; e.style.gridTemplateColumns = small ? (e.getAttribute('data-cols-sm') || '1fr') : e.dataset.colsLg; });
+    };
+    applyResponsive(); window.addEventListener('resize', applyResponsive); this._onResize = applyResponsive;
+
+    const reveals = q('[data-reveal]');
+    reveals.forEach((el) => { el.style.opacity='0'; el.style.transform='translateY(40px)'; el.style.transition='opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1)'; });
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { const d = parseInt(e.target.getAttribute('data-reveal-delay')||'0',10); setTimeout(() => { e.target.style.opacity='1'; e.target.style.transform='none'; }, d); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    reveals.forEach((el) => io.observe(el));
+  }
+  componentWillUnmount() {
+    if (this._onScroll) window.removeEventListener('scroll', this._onScroll);
+    if (this._onResize) window.removeEventListener('resize', this._onResize);
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

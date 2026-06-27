@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;-webkit-font-smoothing:antialiased;}
+  ::selection{background:#f6a324;color:#15132f;}
+  @keyframes wci-pulse{0%,100%{opacity:.5;}50%{opacity:1;}}
+  input,select,textarea{font-family:'Hanken Grotesk',system-ui,sans-serif;}
+  input::placeholder,textarea::placeholder{color:#a7a3b5;}
+</style>
+</helmet>
+<div data-screen-label="Register" style="--navy:#15132f;--navy2:#1e1b43;--navy3:#262252;--gold:#f6a324;--gold2:#ffc566;--azure:#2f7fc0;--cream:#f6f1e7;--paper:#fbf9f4;--ink:#1b1838;--muted:#6b6780; font-family:'Hanken Grotesk',system-ui,sans-serif; color:var(--ink); background:var(--paper); overflow-x:hidden; position:relative;">
+
+  <!-- NAV -->
+  <nav data-nav style="position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px clamp(20px,5vw,68px);transition:background .4s,padding .4s,box-shadow .4s;background:rgba(21,19,47,.92);backdrop-filter:blur(14px);box-shadow:0 8px 30px rgba(0,0,0,.28);">
+    <a href="Home.dc.html" style="display:flex;align-items:center;gap:13px;text-decoration:none;">
+      <span style="width:46px;height:46px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.25);"><img src="img/logo-youth-sq.png" alt="WCI Academy" style="width:118%;height:118%;object-fit:contain;"></span>
+      <span style="display:flex;flex-direction:column;line-height:.92;">
+        <span style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:22px;letter-spacing:-.5px;color:#fff;">WCI <span style="color:var(--gold);">ACADEMY</span></span>
+        <span style="font-family:'Archivo';font-weight:700;font-size:8.5px;letter-spacing:2.4px;color:rgba(255,255,255,.65);">YOUTH CRICKET · HIGH-PERFORMANCE</span>
+      </span>
+    </a>
+    <div style="display:flex;align-items:center;gap:clamp(18px,2.4vw,38px);">
+      <div data-navlinks style="display:flex;align-items:center;gap:clamp(13px,1.6vw,26px);">
+        <a href="Home.dc.html" style="font-family:'Archivo';font-weight:700;font-size:13.5px;letter-spacing:.4px;text-transform:uppercase;text-decoration:none;color:rgba(255,255,255,.78);">Home</a>
+        <a href="About.dc.html" style="font-family:'Archivo';font-weight:700;font-size:13.5px;letter-spacing:.4px;text-transform:uppercase;text-decoration:none;color:rgba(255,255,255,.78);">About &amp; Coaches</a>
+        <a href="Programs.dc.html" style="font-family:'Archivo';font-weight:700;font-size:13.5px;letter-spacing:.4px;text-transform:uppercase;text-decoration:none;color:rgba(255,255,255,.78);">Programs</a>
+        <a href="Locations.dc.html" style="font-family:'Archivo';font-weight:700;font-size:13.5px;letter-spacing:.4px;text-transform:uppercase;text-decoration:none;color:rgba(255,255,255,.78);">Locations</a>
+        <a href="Resources.dc.html" style="font-family:'Archivo';font-weight:700;font-size:13.5px;letter-spacing:.4px;text-transform:uppercase;text-decoration:none;color:rgba(255,255,255,.78);">Resources</a>
+        <a href="Register.dc.html" style="font-family:'Archivo';font-weight:700;font-size:13.5px;letter-spacing:.4px;text-transform:uppercase;text-decoration:none;color:#fff;">Contact</a>
+      </div>
+      <a href="#plans" data-cta-nav style="font-family:'Archivo';font-weight:800;font-size:13.5px;letter-spacing:.3px;text-transform:uppercase;text-decoration:none;color:var(--navy);background:var(--gold);padding:12px 22px;border-radius:40px;box-shadow:0 6px 22px rgba(246,163,36,.4);transition:transform .2s,box-shadow .2s;" style-hover="transform:translateY(-2px);box-shadow:0 10px 30px rgba(246,163,36,.55);">Register Now</a>
+      <button data-menu-toggle aria-label="Menu" style="display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;">
+        <span style="width:26px;height:2.5px;background:#fff;border-radius:2px;"></span><span style="width:26px;height:2.5px;background:#fff;border-radius:2px;"></span><span style="width:26px;height:2.5px;background:#fff;border-radius:2px;"></span>
+      </button>
+    </div>
+  </nav>
+  <div data-menu style="position:fixed;inset:0;z-index:99;background:linear-gradient(160deg,var(--navy2),var(--navy));display:flex;flex-direction:column;justify-content:center;gap:8px;padding:0 32px;transform:translateX(100%);transition:transform .45s cubic-bezier(.6,0,.2,1);">
+    <a href="Home.dc.html" style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:34px;color:rgba(255,255,255,.8);text-decoration:none;padding:10px 0;">Home</a>
+    <a href="About.dc.html" style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:34px;color:rgba(255,255,255,.8);text-decoration:none;padding:10px 0;">About &amp; Coaches</a>
+    <a href="Programs.dc.html" style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:34px;color:rgba(255,255,255,.8);text-decoration:none;padding:10px 0;">Programs</a>
+    <a href="Locations.dc.html" style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:34px;color:rgba(255,255,255,.8);text-decoration:none;padding:10px 0;">Locations</a>
+    <a href="Resources.dc.html" style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:34px;color:rgba(255,255,255,.8);text-decoration:none;padding:10px 0;">Resources</a>
+    <a href="Register.dc.html" style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:34px;color:var(--gold);text-decoration:none;padding:10px 0;">Book a Free Tryout</a>
+  </div>
+
+  <!-- HERO -->
+  <header style="position:relative;background:var(--navy);overflow:hidden;padding:150px clamp(20px,5vw,68px) 90px;">
+    <img src="img/win-u11.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%;opacity:.26;">
+    <div style="position:absolute;inset:0;background:radial-gradient(120% 120% at 80% 0%,rgba(38,34,82,.4),var(--navy2) 55%,var(--navy));"></div>
+    <div style="position:relative;z-index:2;max-width:1320px;margin:0 auto;">
+      <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(246,163,36,.12);border:1px solid rgba(246,163,36,.35);padding:8px 16px;border-radius:40px;margin-bottom:22px;">
+        <span style="width:7px;height:7px;border-radius:50%;background:var(--gold);animation:wci-pulse 2s infinite;"></span>
+        <span style="font-family:'Archivo';font-weight:700;font-size:12px;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold2);">Free tryout · No commitment</span>
+      </div>
+      <h1 style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:clamp(40px,5.4vw,82px);line-height:.92;letter-spacing:-.025em;color:#fff;margin:0 0 22px;text-transform:uppercase;max-width:16ch;">Let's get your<br>kid <span style="color:var(--gold);">on the field</span></h1>
+      <p style="font-size:clamp(16px,1.4vw,20px);line-height:1.6;color:rgba(255,255,255,.78);max-width:600px;margin:0 0 32px;">Choose a membership and register securely on SportsEngine, or send us a message and we'll guide you through it — same-day reply.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;">
+        <a href="#plans" style="display:inline-flex;align-items:center;gap:10px;font-family:'Archivo';font-weight:800;font-size:15px;letter-spacing:.4px;text-transform:uppercase;text-decoration:none;color:var(--navy);background:var(--gold);padding:17px 30px;border-radius:46px;box-shadow:0 10px 34px rgba(246,163,36,.42);transition:transform .2s,box-shadow .2s;" style-hover="transform:translateY(-3px);box-shadow:0 16px 44px rgba(246,163,36,.6);">Choose a plan →</a>
+        <a href="#register-form" style="display:inline-flex;align-items:center;gap:10px;font-family:'Archivo';font-weight:800;font-size:15px;letter-spacing:.4px;text-transform:uppercase;text-decoration:none;color:#fff;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.28);padding:17px 30px;border-radius:46px;transition:background .2s,border-color .2s;" style-hover="background:rgba(255,255,255,.13);border-color:#fff;">Ask a question</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CHOOSE A PLAN -->
+  <section id="plans" style="max-width:1320px;margin:0 auto;padding:clamp(56px,7vw,100px) clamp(20px,5vw,68px) clamp(20px,3vw,40px);">
+    <div style="text-align:center;margin-bottom:46px;" data-reveal>
+      <div style="font-family:'Archivo';font-weight:800;font-size:13px;letter-spacing:2.4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">Step 1 · Choose a membership</div>
+      <h2 style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:clamp(30px,4vw,54px);line-height:.98;letter-spacing:-.02em;color:var(--ink);margin:0 auto;text-transform:uppercase;max-width:18ch;">Register in minutes with SportsEngine</h2>
+      <p style="font-size:15.5px;line-height:1.6;color:var(--muted);max-width:60ch;margin:16px auto 0;">Start free to attend a tryout, or go straight to Premium if you already know you're in. Registration is handled securely on our SportsEngine platform — you'll also get an app for schedules, RSVPs &amp; messaging.</p>
+    </div>
+
+    <div data-grid data-cols-sm="1fr" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch;max-width:980px;margin:0 auto;">
+      <!-- Basic -->
+      <div data-reveal style="background:#fff;border-radius:24px;padding:clamp(28px,3vw,40px);border:1px solid rgba(27,24,56,.1);display:flex;flex-direction:column;box-shadow:0 10px 36px rgba(27,24,56,.06);">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;">
+          <span style="font-family:'Archivo';font-weight:800;font-size:13px;letter-spacing:1.6px;text-transform:uppercase;color:var(--azure);">Basic Membership</span>
+          <span style="font-family:'Archivo';font-weight:800;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--azure);background:rgba(47,127,192,.12);padding:5px 11px;border-radius:30px;">Start here</span>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:6px;"><span style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:58px;color:var(--ink);line-height:1;">Free</span></div>
+        <div style="font-size:13.5px;color:var(--muted);margin-bottom:24px;">No payment required · for tryouts &amp; webinars</div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:30px;">
+          <div style="display:flex;gap:11px;font-size:14.5px;color:var(--ink);line-height:1.45;"><span style="color:var(--gold);font-weight:800;flex-shrink:0;">✓</span>Attend a tryout session &amp; meet the coaches</div>
+          <div style="display:flex;gap:11px;font-size:14.5px;color:var(--ink);line-height:1.45;"><span style="color:var(--gold);font-weight:800;flex-shrink:0;">✓</span>Access to webinars &amp; academy activities</div>
+          <div style="display:flex;gap:11px;font-size:14.5px;color:var(--ink);line-height:1.45;"><span style="color:var(--gold);font-weight:800;flex-shrink:0;">✓</span>A SportsEngine account &amp; app</div>
+          <div style="display:flex;gap:11px;font-size:14.5px;color:var(--ink);line-height:1.45;"><span style="color:var(--gold);font-weight:800;flex-shrink:0;">✓</span>Initial player assessment</div>
+        </div>
+        <a href="https://memberships.sportsengine.com/buy/11ed88cc-a8ba-c5f6-8fbc-e25e9557a877" target="_blank" rel="noopener" style="margin-top:auto;text-align:center;font-family:'Archivo';font-weight:800;font-size:14.5px;letter-spacing:.3px;text-transform:uppercase;text-decoration:none;color:var(--navy);background:rgba(27,24,56,.07);padding:16px;border-radius:44px;transition:background .2s;" style-hover="background:rgba(27,24,56,.13);">Register free →</a>
+      </div>
+
+      <!-- Premium -->
+      <div data-reveal data-reveal-delay="120" style="background:var(--navy2);border-radius:24px;padding:clamp(28px,3vw,40px);display:flex;flex-direction:column;position:relative;box-shadow:0 26px 64px rgba(27,24,56,.3);overflow:hidden;">
+        <div style="position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;border:2px dashed rgba(246,163,36,.18);"></div>
+        <div style="position:relative;z-index:2;display:flex;flex-direction:column;height:100%;">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;">
+            <span style="font-family:'Archivo';font-weight:800;font-size:13px;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold);">Premium Membership</span>
+            <span style="font-family:'Archivo';font-weight:800;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:5px 11px;border-radius:30px;">Most popular</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:6px;"><span style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:58px;color:#fff;line-height:1;">$120</span><span style="font-size:15px;color:rgba(255,255,255,.6);">/ year</span></div>
+          <div style="font-size:13.5px;color:rgba(255,255,255,.6);margin-bottom:24px;">~$10/month · valid 12 months · non-refundable</div>
+          <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:30px;">
+            <div style="display:flex;gap:11px;font-size:14.5px;color:#fff;line-height:1.45;"><span style="color:var(--gold);font-weight:800;flex-shrink:0;">✓</span>Everything in Basic, plus eligibility for…</div>
+            <div style="display:flex;gap:11px;font-size:14.5px;color:#fff;line-height:1.45;"><span style="color:var(--gold);font-weight:800;flex-shrink:0;">✓</span>Group Training, 1:1s &amp; games</div>
+            <div style="display:flex;gap:11px;font-size:14.5px;color:#fff;line-height:1.45;"><span style="color:var(--gold);font-weight:800;flex-shrink:0;">✓</span>Leagues &amp; national tournaments</div>
+            <div style="display:flex;gap:11px;font-size:14.5px;color:#fff;line-height:1.45;"><span style="color:var(--gold);font-weight:800;flex-shrink:0;">✓</span>Individual Development Plan &amp; AI drills</div>
+          </div>
+          <a href="https://memberships.sportsengine.com/buy/11ed88ca-9438-9290-9448-7a58354be825" target="_blank" rel="noopener" style="margin-top:auto;text-align:center;font-family:'Archivo';font-weight:800;font-size:14.5px;letter-spacing:.3px;text-transform:uppercase;text-decoration:none;color:var(--navy);background:var(--gold);padding:16px;border-radius:44px;box-shadow:0 10px 30px rgba(246,163,36,.4);transition:transform .2s;" style-hover="transform:translateY(-2px);">Become a Premium Member →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Group training note -->
+    <div data-reveal data-grid data-cols-sm="1fr" style="display:grid;grid-template-columns:1.4fr 1fr;gap:18px;max-width:980px;margin:24px auto 0;">
+      <div style="background:var(--cream);border-radius:18px;padding:26px 30px;border:1px solid rgba(27,24,56,.06);">
+        <div style="font-family:'Archivo';font-weight:800;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--azure);margin-bottom:8px;">Step 2 · After Premium</div>
+        <h3 style="font-family:'Archivo';font-weight:800;font-size:19px;color:var(--ink);margin:0 0 8px;">Group Training &amp; Games</h3>
+        <p style="font-size:13.5px;line-height:1.6;color:var(--muted);margin:0;">Once you're a Premium Member, register separately for Group Training &amp; Games — a monthly subscription of <strong style="color:var(--ink);">$299–$399/month</strong> depending on sessions per week. Prefer to drop in? <strong style="color:var(--ink);">$30</strong>/training session and <strong style="color:var(--ink);">$30</strong>/game.</p>
+      </div>
+      <div style="background:var(--navy);border-radius:18px;padding:26px 30px;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-family:'Archivo';font-weight:800;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">High-Performance, 1:1s, tournaments &amp; leagues</div>
+        <p style="font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.72);margin:0 0 14px;">For HPC, private 1:1 coaching, and tournament/league entries, reach our team directly.</p>
+        <a href="mailto:contact@wcicricket.com" style="font-size:14.5px;color:var(--gold2);text-decoration:none;font-weight:700;">contact@wcicricket.com · 512-200-3042</a>
+      </div>
+    </div>
+
+    <p style="text-align:center;font-size:13px;color:var(--muted);max-width:70ch;margin:26px auto 0;line-height:1.6;">Separate registrations &amp; payments are required for Premium Membership and for Group Training &amp; Games. Registering more than one child? On the SportsEngine review page choose <strong style="color:var(--ink);">"Register Another Person"</strong> to add a sibling. Questions first? <a href="#register-form" style="color:var(--ink);font-weight:700;">Send us a message below.</a></p>
+  </section>
+
+  <!-- FORM + CONTACT -->
+  <section id="register-form" style="max-width:1320px;margin:0 auto;padding:clamp(56px,7vw,100px) clamp(20px,5vw,68px);">
+    <div style="max-width:880px;margin:0 auto;">
+
+      <!-- INFO PANEL -->
+      <div data-reveal style="background:linear-gradient(160deg,var(--navy2),var(--navy));border-radius:24px;padding:clamp(30px,3.4vw,52px);color:#fff;position:relative;overflow:hidden;box-shadow:0 24px 64px rgba(27,24,56,.18);">
+        <div style="position:absolute;right:-80px;top:-80px;width:260px;height:260px;border-radius:50%;border:2px dashed rgba(246,163,36,.18);"></div>
+        <div data-grid data-cols-sm="1fr" style="position:relative;z-index:2;display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(28px,3.4vw,48px);align-items:center;">
+         <div>
+          <div style="font-family:'Archivo';font-weight:800;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Why families choose WCI</div>
+          <div style="display:flex;flex-direction:column;gap:18px;">
+            <div style="display:flex;gap:13px;"><span style="color:var(--gold);font-family:'Archivo';font-weight:900;flex-shrink:0;">✓</span><span style="font-size:14.5px;line-height:1.5;color:rgba(255,255,255,.82);">Elite coaching mentored by Gary Kirsten Cricket &amp; CoachED</span></div>
+            <div style="display:flex;gap:13px;"><span style="color:var(--gold);font-family:'Archivo';font-weight:900;flex-shrink:0;">✓</span><span style="font-size:14.5px;line-height:1.5;color:rgba(255,255,255,.82);">A real path to national tournaments with the Austin Blasters</span></div>
+            <div style="display:flex;gap:13px;"><span style="color:var(--gold);font-family:'Archivo';font-weight:900;flex-shrink:0;">✓</span><span style="font-size:14.5px;line-height:1.5;color:rgba(255,255,255,.82);">Personalized development plans &amp; AI-driven drills</span></div>
+            <div style="display:flex;gap:13px;"><span style="color:var(--gold);font-family:'Archivo';font-weight:900;flex-shrink:0;">✓</span><span style="font-size:14.5px;line-height:1.5;color:rgba(255,255,255,.82);">A positive, healthy environment — friends for life</span></div>
+          </div>
+         </div>
+         <div style="border-left:1px solid rgba(255,255,255,.12);padding-left:clamp(0px,2.6vw,40px);" data-panel-contact>
+          <div style="font-family:'Archivo';font-weight:800;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Prefer to talk?</div>
+          <a href="tel:5122003042" style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:30px;color:#fff;text-decoration:none;display:block;line-height:1;">512-200-3042</a>
+          <div style="font-size:13px;color:rgba(255,255,255,.55);margin:6px 0 18px;">Call or WhatsApp — we reply the same day</div>
+          <a href="mailto:contact@wcicricket.com" style="font-size:15px;color:var(--gold2);text-decoration:none;font-weight:600;">contact@wcicricket.com</a>
+          <div style="display:flex;gap:10px;margin-top:24px;">
+            <a href="https://www.instagram.com/wciacademy/" style="font-family:'Archivo';font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.18);padding:8px 14px;border-radius:30px;text-decoration:none;">Instagram</a>
+            <a href="https://www.youtube.com/@wciacademy" style="font-family:'Archivo';font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.18);padding:8px 14px;border-radius:30px;text-decoration:none;">YouTube</a>
+          </div>
+         </div>
+        </div>
+      </div>
+
+      <!-- RIGHT FORM (removed) -->
+      <div style="display:none;">
+        <form data-form>
+          <h2 style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:clamp(26px,2.6vw,38px);color:var(--ink);margin:0 0 6px;text-transform:uppercase;letter-spacing:-.02em;">Questions first? Message us</h2>
+          <p style="font-size:14.5px;color:var(--muted);margin:0 0 28px;">Not sure which plan fits, or want to book a tryout the easy way? Tell us about your player — same-day reply.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;" data-form-grid>
+            <div>
+              <label style="display:block;font-family:'Archivo';font-weight:700;font-size:12px;letter-spacing:.6px;text-transform:uppercase;color:var(--ink);margin-bottom:7px;">Player's name *</label>
+              <input name="player" required placeholder="e.g. Arjun" style="width:100%;padding:13px 14px;border:1.5px solid rgba(27,24,56,.14);border-radius:11px;font-size:15px;color:var(--ink);outline:none;transition:border-color .2s;" style-focus="border-color:var(--gold);">
+            </div>
+            <div>
+              <label style="display:block;font-family:'Archivo';font-weight:700;font-size:12px;letter-spacing:.6px;text-transform:uppercase;color:var(--ink);margin-bottom:7px;">Parent / guardian *</label>
+              <input name="parent" required placeholder="Your name" style="width:100%;padding:13px 14px;border:1.5px solid rgba(27,24,56,.14);border-radius:11px;font-size:15px;color:var(--ink);outline:none;transition:border-color .2s;" style-focus="border-color:var(--gold);">
+            </div>
+            <div>
+              <label style="display:block;font-family:'Archivo';font-weight:700;font-size:12px;letter-spacing:.6px;text-transform:uppercase;color:var(--ink);margin-bottom:7px;">Email *</label>
+              <input name="email" type="email" required placeholder="you@email.com" style="width:100%;padding:13px 14px;border:1.5px solid rgba(27,24,56,.14);border-radius:11px;font-size:15px;color:var(--ink);outline:none;transition:border-color .2s;" style-focus="border-color:var(--gold);">
+            </div>
+            <div>
+              <label style="display:block;font-family:'Archivo';font-weight:700;font-size:12px;letter-spacing:.6px;text-transform:uppercase;color:var(--ink);margin-bottom:7px;">Phone</label>
+              <input name="phone" placeholder="(512) 000-0000" style="width:100%;padding:13px 14px;border:1.5px solid rgba(27,24,56,.14);border-radius:11px;font-size:15px;color:var(--ink);outline:none;transition:border-color .2s;" style-focus="border-color:var(--gold);">
+            </div>
+            <div>
+              <label style="display:block;font-family:'Archivo';font-weight:700;font-size:12px;letter-spacing:.6px;text-transform:uppercase;color:var(--ink);margin-bottom:7px;">Age group *</label>
+              <select name="age" required style="width:100%;padding:13px 14px;border:1.5px solid rgba(27,24,56,.14);border-radius:11px;font-size:15px;color:var(--ink);outline:none;background:#fff;transition:border-color .2s;" style-focus="border-color:var(--gold);">
+                <option value="">Select…</option>
+                <option>U9</option><option>U11</option><option>U13</option><option>U15</option><option>U17</option><option>U19</option>
+              </select>
+            </div>
+            <div>
+              <label style="display:block;font-family:'Archivo';font-weight:700;font-size:12px;letter-spacing:.6px;text-transform:uppercase;color:var(--ink);margin-bottom:7px;">City *</label>
+              <select name="city" required style="width:100%;padding:13px 14px;border:1.5px solid rgba(27,24,56,.14);border-radius:11px;font-size:15px;color:var(--ink);outline:none;background:#fff;transition:border-color .2s;" style-focus="border-color:var(--gold);">
+                <option value="">Select…</option>
+                <option>Austin</option><option>San Antonio</option><option>Dallas</option><option>Houston</option><option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div style="margin-top:16px;">
+            <label style="display:block;font-family:'Archivo';font-weight:700;font-size:12px;letter-spacing:.6px;text-transform:uppercase;color:var(--ink);margin-bottom:7px;">I'm interested in</label>
+            <select name="interest" style="width:100%;padding:13px 14px;border:1.5px solid rgba(27,24,56,.14);border-radius:11px;font-size:15px;color:var(--ink);outline:none;background:#fff;transition:border-color .2s;" style-focus="border-color:var(--gold);">
+              <option>A free tryout</option>
+              <option>Premium Membership</option>
+              <option>Group Training &amp; Games</option>
+              <option>1:1 / High-Performance Clinic</option>
+              <option>Summer / Spring camp</option>
+            </select>
+          </div>
+          <div style="margin-top:16px;">
+            <label style="display:block;font-family:'Archivo';font-weight:700;font-size:12px;letter-spacing:.6px;text-transform:uppercase;color:var(--ink);margin-bottom:7px;">Anything else?</label>
+            <textarea name="message" rows="3" placeholder="Tell us about your player's experience, questions about schedule or fees…" style="width:100%;padding:13px 14px;border:1.5px solid rgba(27,24,56,.14);border-radius:11px;font-size:15px;color:var(--ink);outline:none;resize:vertical;transition:border-color .2s;" style-focus="border-color:var(--gold);"></textarea>
+          </div>
+          <button type="submit" style="width:100%;margin-top:24px;font-family:'Archivo';font-weight:800;font-size:15px;letter-spacing:.4px;text-transform:uppercase;color:var(--navy);background:var(--gold);border:none;padding:18px;border-radius:46px;cursor:pointer;box-shadow:0 10px 30px rgba(246,163,36,.4);transition:transform .2s,box-shadow .2s;" style-hover="transform:translateY(-2px);box-shadow:0 16px 42px rgba(246,163,36,.55);">Submit &amp; book my free tryout →</button>
+          <p style="font-size:12px;color:var(--muted);text-align:center;margin:16px 0 0;">By submitting, you agree to be contacted by WCI Academy about youth cricket programs.</p>
+        </form>
+
+        <!-- success -->
+        <div data-success style="display:none;text-align:center;padding:30px 10px;">
+          <div style="width:74px;height:74px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 22px;font-family:'Archivo';font-weight:900;font-size:34px;color:var(--navy);">✓</div>
+          <h2 style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:clamp(26px,2.6vw,38px);color:var(--ink);margin:0 0 12px;text-transform:uppercase;letter-spacing:-.02em;">You're in<span data-success-name></span>!</h2>
+          <p style="font-size:15.5px;line-height:1.6;color:var(--muted);max-width:42ch;margin:0 auto 26px;">Thanks for registering. Our team will reach out the same day with tryout details and the schedule for your age-group. Keep an eye on your email and phone.</p>
+          <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+            <a href="Programs.dc.html" style="font-family:'Archivo';font-weight:800;font-size:14px;letter-spacing:.3px;text-transform:uppercase;text-decoration:none;color:var(--navy);background:rgba(27,24,56,.06);padding:14px 26px;border-radius:40px;">Explore programs</a>
+            <a href="tel:5122003042" style="font-family:'Archivo';font-weight:800;font-size:14px;letter-spacing:.3px;text-transform:uppercase;text-decoration:none;color:#fff;background:var(--navy);padding:14px 26px;border-radius:40px;">Call us now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW REGISTRATION WORKS -->
+  <section style="background:var(--cream);">
+    <div style="max-width:1320px;margin:0 auto;padding:clamp(56px,7vw,100px) clamp(20px,5vw,68px);">
+      <div style="text-align:center;margin-bottom:48px;" data-reveal>
+        <div style="font-family:'Archivo';font-weight:800;font-size:13px;letter-spacing:2.4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">What happens next</div>
+        <h2 style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:clamp(28px,3.6vw,48px);line-height:.98;letter-spacing:-.02em;color:var(--ink);margin:0 auto;text-transform:uppercase;max-width:20ch;">From sign-up to first session</h2>
+      </div>
+      <div data-grid data-cols-sm="1fr" style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;">
+        <div data-reveal style="background:#fff;border-radius:18px;padding:28px;border:1px solid rgba(27,24,56,.07);"><div style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:30px;color:var(--gold);">01</div><div style="font-family:'Archivo';font-weight:800;font-size:16px;color:var(--ink);margin:10px 0 6px;">You register</div><div style="font-size:13.5px;line-height:1.55;color:var(--muted);">Pick a plan and register on SportsEngine above.</div></div>
+        <div data-reveal data-reveal-delay="80" style="background:#fff;border-radius:18px;padding:28px;border:1px solid rgba(27,24,56,.07);"><div style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:30px;color:var(--gold);">02</div><div style="font-family:'Archivo';font-weight:800;font-size:16px;color:var(--ink);margin:10px 0 6px;">We reach out</div><div style="font-size:13.5px;line-height:1.55;color:var(--muted);">Same-day reply with schedule, fees &amp; tryout time.</div></div>
+        <div data-reveal data-reveal-delay="160" style="background:#fff;border-radius:18px;padding:28px;border:1px solid rgba(27,24,56,.07);"><div style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:30px;color:var(--gold);">03</div><div style="font-family:'Archivo';font-weight:800;font-size:16px;color:var(--ink);margin:10px 0 6px;">You try out</div><div style="font-size:13.5px;line-height:1.55;color:var(--muted);">Meet the coaches and get assessed on the field.</div></div>
+        <div data-reveal data-reveal-delay="240" style="background:var(--navy2);border-radius:18px;padding:28px;"><div style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:30px;color:var(--gold);">04</div><div style="font-family:'Archivo';font-weight:800;font-size:16px;color:#fff;margin:10px 0 6px;">You join</div><div style="font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.68);">Go Premium &amp; start training, games &amp; tournaments.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:var(--navy);color:#fff;">
+    <div style="max-width:1320px;margin:0 auto;padding:clamp(56px,7vw,90px) clamp(20px,5vw,68px) 40px;">
+      <div data-grid data-cols-sm="1fr 1fr" style="display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:40px;">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+            <span style="width:42px;height:42px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;"><img src="img/logo-youth-sq.png" alt="WCI Academy" style="width:118%;height:118%;object-fit:contain;"></span>
+            <span style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:20px;color:#fff;">WCI <span style="color:var(--gold);">ACADEMY</span></span>
+          </div>
+          <p style="font-size:14px;line-height:1.6;color:rgba(255,255,255,.55);max-width:34ch;margin:0 0 18px;">Youth Cricket Academy for High-Performance. A registered youth academy of USA Cricket, headquartered in Austin, TX.</p>
+          <div style="display:flex;gap:10px;">
+            <span style="font-family:'Archivo';font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.14);padding:6px 12px;border-radius:30px;">USA Cricket</span>
+            <span style="font-family:'Archivo';font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.14);padding:6px 12px;border-radius:30px;">ICC · USOC</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Archivo';font-weight:800;font-size:12px;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Explore</div>
+          <div style="display:flex;flex-direction:column;gap:11px;">
+            <a href="About.dc.html" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;">About &amp; Coaches</a>
+            <a href="Programs.dc.html" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;">Programs &amp; Pricing</a>
+            <a href="Locations.dc.html" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;">Locations</a>
+            <a href="Resources.dc.html" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;">Resources</a>
+            <a href="Register.dc.html" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;">Register</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Archivo';font-weight:800;font-size:12px;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Follow</div>
+          <div style="display:flex;flex-direction:column;gap:11px;">
+            <a href="https://www.instagram.com/wciacademy/" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;">Instagram</a>
+            <a href="https://www.youtube.com/@wciacademy" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;">YouTube</a>
+            <a href="https://www.facebook.com/WCICricketAcademy/" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;">Facebook</a>
+            <a href="https://www.linkedin.com/company/wcicricket" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;">LinkedIn</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Archivo';font-weight:800;font-size:12px;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Get in touch</div>
+          <a href="mailto:contact@wcicricket.com" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;display:block;margin-bottom:10px;">contact@wcicricket.com</a>
+          <a href="tel:5122003042" style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:22px;color:#fff;text-decoration:none;display:block;margin-bottom:14px;">512-200-3042</a>
+          <a href="#plans" style="display:inline-block;font-family:'Archivo';font-weight:800;font-size:13px;letter-spacing:.3px;text-transform:uppercase;text-decoration:none;color:var(--navy);background:var(--gold);padding:12px 22px;border-radius:40px;">Register Now</a>
+        </div>
+      </div>
+      <div style="margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+        <span style="font-size:12.5px;color:rgba(255,255,255,.4);">© 2026 WCI Academy · World Cricket Initiative. All rights reserved. · Made by Soham Sthitpragya</span>
+        <span style="font-size:12.5px;color:rgba(255,255,255,.4);">Powered by Gary Kirsten Cricket &amp; CoachED · In partnership with Super Kings Academy</span>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const q = (s) => Array.from(document.querySelectorAll(s));
+    const nav = document.querySelector('[data-nav]');
+    const onScroll = () => { const y = window.scrollY||window.pageYOffset; if (nav) { nav.style.paddingTop=y>30?'12px':'14px'; nav.style.paddingBottom=y>30?'12px':'14px'; } };
+    window.addEventListener('scroll', onScroll, { passive: true }); onScroll(); this._onScroll = onScroll;
+    const menu = document.querySelector('[data-menu]');
+    const toggle = document.querySelector('[data-menu-toggle]');
+    if (toggle && menu) { let open=false; const set=(v)=>{open=v;menu.style.transform=v?'translateX(0)':'translateX(100%)';}; toggle.addEventListener('click',()=>set(!open)); menu.querySelectorAll('a').forEach((a)=>a.addEventListener('click',()=>set(false))); }
+    const applyResponsive = () => {
+      const small = window.innerWidth < 1000;
+      const links = document.querySelector('[data-navlinks]'); const ctaNav = document.querySelector('[data-cta-nav]');
+      if (links) links.style.display = small ? 'none' : 'flex';
+      if (ctaNav) ctaNav.style.display = small ? 'none' : 'inline-flex';
+      if (toggle) toggle.style.display = small ? 'flex' : 'none';
+      q('[data-grid]').forEach((e) => { if (e.dataset.colsLg === undefined) e.dataset.colsLg = e.style.gridTemplateColumns || ''; e.style.gridTemplateColumns = small ? (e.getAttribute('data-cols-sm') || '1fr') : e.dataset.colsLg; });
+      const pc = document.querySelector('[data-panel-contact]');
+      if (pc) { pc.style.borderLeft = small ? 'none' : '1px solid rgba(255,255,255,.12)'; pc.style.paddingLeft = small ? '0' : 'clamp(0px,2.6vw,40px)'; pc.style.borderTop = small ? '1px solid rgba(255,255,255,.12)' : 'none'; pc.style.paddingTop = small ? '28px' : '0'; }
+      const fg = document.querySelector('[data-form-grid]'); if (fg) { if (fg.dataset.colsLg === undefined) fg.dataset.colsLg = fg.style.gridTemplateColumns || ''; fg.style.gridTemplateColumns = small ? '1fr' : fg.dataset.colsLg; }
+    };
+    applyResponsive(); window.addEventListener('resize', applyResponsive); this._onResize = applyResponsive;
+    const reveals = q('[data-reveal]');
+    reveals.forEach((el) => { el.style.opacity='0'; el.style.transform='translateY(40px)'; el.style.transition='opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1)'; });
+    const io = new IntersectionObserver((entries) => { entries.forEach((e) => { if (e.isIntersecting) { const d=parseInt(e.target.getAttribute('data-reveal-delay')||'0',10); setTimeout(()=>{e.target.style.opacity='1';e.target.style.transform='none';},d); io.unobserve(e.target); } }); }, { threshold: 0.12 });
+    reveals.forEach((el) => io.observe(el));
+
+    // form submit
+    const form = document.querySelector('[data-form]');
+    const success = document.querySelector('[data-success]');
+    if (form && success) {
+      form.addEventListener('submit', (ev) => {
+        ev.preventDefault();
+        const player = (form.querySelector('[name=player]') || {}).value || '';
+        const nameSpan = document.querySelector('[data-success-name]');
+        if (nameSpan && player.trim()) nameSpan.textContent = ', ' + player.trim().split(' ')[0];
+        form.style.display = 'none';
+        success.style.display = 'block';
+        success.scrollIntoView ? null : null;
+      });
+    }
+  }
+  componentWillUnmount() { if (this._onScroll) window.removeEventListener('scroll', this._onScroll); if (this._onResize) window.removeEventListener('resize', this._onResize); }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

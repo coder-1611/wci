@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;-webkit-font-smoothing:antialiased;}
+  ::selection{background:#f6a324;color:#15132f;}
+  @keyframes wci-pulse{0%,100%{opacity:.5;}50%{opacity:1;}}
+  details[data-faq] summary{list-style:none;cursor:pointer;}
+  details[data-faq] summary::-webkit-details-marker{display:none;}
+  details[data-faq] summary span[data-plus]{transition:transform .25s ease;}
+  details[data-faq][open] summary span[data-plus]{transform:rotate(45deg);}
+</style>
+</helmet>
+<div data-screen-label="Resources" style="--navy:#15132f;--navy2:#1e1b43;--navy3:#262252;--gold:#f6a324;--gold2:#ffc566;--azure:#2f7fc0;--cream:#f6f1e7;--paper:#fbf9f4;--ink:#1b1838;--muted:#6b6780; font-family:'Hanken Grotesk',system-ui,sans-serif; color:var(--ink); background:var(--paper); overflow-x:hidden; position:relative;">
+
+  <!-- NAV -->
+  <nav data-nav style="position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px clamp(20px,5vw,68px);transition:background .4s,padding .4s,box-shadow .4s;background:rgba(21,19,47,.92);backdrop-filter:blur(14px);box-shadow:0 8px 30px rgba(0,0,0,.28);">
+    <a href="Home.dc.html" style="display:flex;align-items:center;gap:13px;text-decoration:none;">
+      <span style="width:46px;height:46px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.25);"><img src="img/logo-youth-sq.png" alt="WCI Academy" style="width:118%;height:118%;object-fit:contain;"></span>
+      <span style="display:flex;flex-direction:column;line-height:.92;">
+        <span style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:22px;letter-spacing:-.5px;color:#fff;">WCI <span style="color:var(--gold);">ACADEMY</span></span>
+        <span style="font-family:'Archivo';font-weight:700;font-size:8.5px;letter-spacing:2.4px;color:rgba(255,255,255,.65);">YOUTH CRICKET · HIGH-PERFORMANCE</span>
+      </span>
+    </a>
+    <div style="display:flex;align-items:center;gap:clamp(16px,2.2vw,34px);">
+      <div data-navlinks style="display:flex;align-items:center;gap:clamp(14px,1.8vw,28px);">
+        <a href="Home.dc.html" style="font-family:'Archivo';font-weight:700;font-size:13.5px;letter-spacing:.4px;text-transform:uppercase;text-decoration:none;color:rgba(255,255,255,.78);">Home</a>
+        <a href="About.dc.html" style="font-family:'Archivo';font-weight:700;font-size:13.5px;letter-spacing:.4px;text-transform:uppercase;text-decoration:none;color:rgba(255,255,255,.78);">About &amp; Coaches</a>
+        <a href="Programs.dc.html" style="font-family:'Archivo';font-weight:700;font-size:13.5px;letter-spacing:.4px;text-transform:uppercase;text-decoration:none;color:rgba(255,255,255,.78);">Programs</a>
+        <a href="Locations.dc.html" style="font-family:'Archivo';font-weight:700;font-size:13.5px;letter-spacing:.4px;text-transform:uppercase;text-decoration:none;color:rgba(255,255,255,.78);">Locations</a>
+        <a href="Resources.dc.html" style="font-family:'Archivo';font-weight:700;font-size:13.5px;letter-spacing:.4px;text-transform:uppercase;text-decoration:none;color:#fff;">Resources</a>
+        <a href="Register.dc.html" style="font-family:'Archivo';font-weight:700;font-size:13.5px;letter-spacing:.4px;text-transform:uppercase;text-decoration:none;color:rgba(255,255,255,.78);">Contact</a>
+      </div>
+      <a href="Register.dc.html" data-cta-nav style="font-family:'Archivo';font-weight:800;font-size:13.5px;letter-spacing:.3px;text-transform:uppercase;text-decoration:none;color:var(--navy);background:var(--gold);padding:12px 22px;border-radius:40px;box-shadow:0 6px 22px rgba(246,163,36,.4);transition:transform .2s,box-shadow .2s;" style-hover="transform:translateY(-2px);box-shadow:0 10px 30px rgba(246,163,36,.55);">Book a Free Tryout</a>
+      <button data-menu-toggle aria-label="Menu" style="display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;">
+        <span style="width:26px;height:2.5px;background:#fff;border-radius:2px;"></span><span style="width:26px;height:2.5px;background:#fff;border-radius:2px;"></span><span style="width:26px;height:2.5px;background:#fff;border-radius:2px;"></span>
+      </button>
+    </div>
+  </nav>
+  <div data-menu style="position:fixed;inset:0;z-index:99;background:linear-gradient(160deg,var(--navy2),var(--navy));display:flex;flex-direction:column;justify-content:center;gap:6px;padding:0 32px;transform:translateX(100%);transition:transform .45s cubic-bezier(.6,0,.2,1);">
+    <a href="Home.dc.html" style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:32px;color:rgba(255,255,255,.8);text-decoration:none;padding:9px 0;">Home</a>
+    <a href="About.dc.html" style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:32px;color:rgba(255,255,255,.8);text-decoration:none;padding:9px 0;">About &amp; Coaches</a>
+    <a href="Programs.dc.html" style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:32px;color:rgba(255,255,255,.8);text-decoration:none;padding:9px 0;">Programs</a>
+    <a href="Locations.dc.html" style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:32px;color:rgba(255,255,255,.8);text-decoration:none;padding:9px 0;">Locations</a>
+    <a href="Resources.dc.html" style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:32px;color:#fff;text-decoration:none;padding:9px 0;">Resources</a>
+    <a href="Register.dc.html" style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:32px;color:var(--gold);text-decoration:none;padding:9px 0;">Book a Free Tryout</a>
+  </div>
+
+  <!-- HERO -->
+  <header style="position:relative;background:var(--navy);overflow:hidden;padding:150px clamp(20px,5vw,68px) 96px;">
+    <img src="img/train-stroke.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.2;">
+    <div style="position:absolute;inset:0;background:radial-gradient(120% 120% at 80% 0%,rgba(38,34,82,.5),var(--navy2) 55%,var(--navy));"></div>
+    <div style="position:absolute;right:-140px;top:-100px;width:520px;height:520px;border-radius:50%;border:2px dashed rgba(246,163,36,.16);"></div>
+    <div style="position:relative;z-index:2;max-width:1320px;margin:0 auto;">
+      <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(246,163,36,.12);border:1px solid rgba(246,163,36,.35);padding:8px 16px;border-radius:40px;margin-bottom:22px;">
+        <span style="width:7px;height:7px;border-radius:50%;background:var(--gold);animation:wci-pulse 2s infinite;"></span>
+        <span style="font-family:'Archivo';font-weight:700;font-size:12px;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold2);">For players &amp; parents</span>
+      </div>
+      <h1 style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:clamp(40px,5.4vw,82px);line-height:.92;letter-spacing:-.025em;color:#fff;margin:0 0 22px;text-transform:uppercase;max-width:16ch;">Resources &amp; <span style="color:var(--gold);">player pathway</span></h1>
+      <p style="font-size:clamp(16px,1.4vw,20px);line-height:1.6;color:rgba(255,255,255,.78);max-width:660px;margin:0;">How we develop young cricketers the right way — the Long-Term Athlete Development model, plus everything parents need to know before the first session.</p>
+    </div>
+  </header>
+
+  <!-- LTAD INTRO -->
+  <section style="max-width:1320px;margin:0 auto;padding:clamp(70px,9vw,120px) clamp(20px,5vw,68px) clamp(30px,4vw,50px);">
+    <div data-grid data-cols-sm="1fr" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+      <div data-reveal>
+        <div style="font-family:'Archivo';font-weight:800;font-size:13px;letter-spacing:2.4px;text-transform:uppercase;color:var(--gold);margin-bottom:18px;">Our framework</div>
+        <h2 style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:clamp(30px,3.6vw,48px);line-height:1;letter-spacing:-.02em;color:var(--ink);margin:0 0 22px;text-transform:uppercase;">Long-Term Athlete Development</h2>
+        <p style="font-size:16.5px;line-height:1.65;color:var(--muted);margin:0 0 16px;">We coach to a structured <strong style="color:var(--ink);">LTAD</strong> model — the framework developed by internationally renowned coach Istvan Balyi and rooted in the major sports of the U.S.</p>
+        <p style="font-size:16.5px;line-height:1.65;color:var(--muted);margin:0;">Gary Kirsten Cricket adapts these principles to integrate training, competition and recovery with each child's biological development — for a fulfilling journey in and through the game.</p>
+      </div>
+      <div data-reveal data-reveal-delay="120" style="border-radius:22px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 30px 70px rgba(27,24,56,.18);">
+        <img src="img/train-batting.jpg" alt="Youth coaching session" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+    </div>
+  </section>
+
+  <!-- LTAD STAGES -->
+  <section style="max-width:1320px;margin:0 auto;padding:clamp(20px,3vw,40px) clamp(20px,5vw,68px) clamp(60px,8vw,100px);">
+    <div data-grid data-cols-sm="1fr" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;">
+      <div data-reveal style="background:#fff;border-radius:18px;padding:28px;border:1px solid rgba(27,24,56,.08);box-shadow:0 6px 24px rgba(27,24,56,.04);">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;"><span style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:22px;color:var(--gold);">01</span><span style="font-family:'Archivo';font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--azure);">Ages ~0–6</span></div>
+        <h3 style="font-family:'Archivo';font-weight:800;font-size:19px;color:var(--ink);margin:0 0 8px;">Active Start</h3>
+        <p style="font-size:13.5px;line-height:1.55;color:var(--muted);margin:0;">Fun, daily physical activity. Learning fundamental movements and linking them into play.</p>
+      </div>
+      <div data-reveal data-reveal-delay="60" style="background:#fff;border-radius:18px;padding:28px;border:1px solid rgba(27,24,56,.08);box-shadow:0 6px 24px rgba(27,24,56,.04);">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;"><span style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:22px;color:var(--gold);">02</span><span style="font-family:'Archivo';font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--azure);">G 6–8 · B 6–9</span></div>
+        <h3 style="font-family:'Archivo';font-weight:800;font-size:19px;color:var(--ink);margin:0 0 8px;">FUNdamentals</h3>
+        <p style="font-size:13.5px;line-height:1.55;color:var(--muted);margin:0;">Well-structured, fun activities 3–4× a week. Building the ABCs of movement — no formal competition.</p>
+      </div>
+      <div data-reveal data-reveal-delay="120" style="background:#fff;border-radius:18px;padding:28px;border:1px solid rgba(27,24,56,.08);box-shadow:0 6px 24px rgba(27,24,56,.04);">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;"><span style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:22px;color:var(--gold);">03</span><span style="font-family:'Archivo';font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--azure);">G 8–11 · B 9–12</span></div>
+        <h3 style="font-family:'Archivo';font-weight:800;font-size:19px;color:var(--ink);margin:0 0 8px;">Learn to Train</h3>
+        <p style="font-size:13.5px;line-height:1.55;color:var(--muted);margin:0;">"Hard-ball" cricket begins. Developing batting, bowling, fielding &amp; keeping movement skills.</p>
+      </div>
+      <div data-reveal style="background:#fff;border-radius:18px;padding:28px;border:1px solid rgba(27,24,56,.08);box-shadow:0 6px 24px rgba(27,24,56,.04);">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;"><span style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:22px;color:var(--gold);">04</span><span style="font-family:'Archivo';font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--azure);">Teens</span></div>
+        <h3 style="font-family:'Archivo';font-weight:800;font-size:19px;color:var(--ink);margin:0 0 8px;">Train to Train</h3>
+        <p style="font-size:13.5px;line-height:1.55;color:var(--muted);margin:0;">Skill + physical development. Learning how to practice, with care for shoulders, core, spine &amp; ankle stability.</p>
+      </div>
+      <div data-reveal data-reveal-delay="60" style="background:#fff;border-radius:18px;padding:28px;border:1px solid rgba(27,24,56,.08);box-shadow:0 6px 24px rgba(27,24,56,.04);">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;"><span style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:22px;color:var(--gold);">05</span><span style="font-family:'Archivo';font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--azure);">Teens</span></div>
+        <h3 style="font-family:'Archivo';font-weight:800;font-size:19px;color:var(--ink);margin:0 0 8px;">Train to Compete</h3>
+        <p style="font-size:13.5px;line-height:1.55;color:var(--muted);margin:0;">Constant improvement of cricket-specific skills, game awareness and the mental side of the game.</p>
+      </div>
+      <div data-reveal data-reveal-delay="120" style="background:var(--navy2);border-radius:18px;padding:28px;box-shadow:0 6px 24px rgba(27,24,56,.04);">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;"><span style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:22px;color:var(--gold);">06</span><span style="font-family:'Archivo';font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--gold2);">Elite</span></div>
+        <h3 style="font-family:'Archivo';font-weight:800;font-size:19px;color:#fff;margin:0 0 8px;">Train to Win</h3>
+        <p style="font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.66);margin:0;">Identified elite athletes pursue cricket as a career through intensive, high-performance programs.</p>
+      </div>
+    </div>
+    <div data-reveal style="margin-top:18px;background:linear-gradient(120deg,var(--gold),#ffb347);border-radius:18px;padding:26px 30px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;">
+      <div style="display:flex;align-items:center;gap:16px;"><span style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:26px;color:var(--navy);">07</span><div><h3 style="font-family:'Archivo';font-weight:800;font-size:19px;color:var(--navy);margin:0;">Active for Life</h3><p style="font-size:13.5px;color:rgba(21,19,47,.8);margin:3px 0 0;">A lifelong love of the game — players can enter this stage at any age after building physical literacy.</p></div></div>
+      <span style="font-family:'Archivo';font-weight:700;font-size:12px;letter-spacing:.6px;text-transform:uppercase;color:rgba(21,19,47,.7);max-width:30ch;">Detailed goals &amp; activities for boys and girls are available on request — contact@wcicricket.com</span>
+    </div>
+  </section>
+
+  <!-- PARENT/PLAYER RESOURCES -->
+  <section style="background:var(--cream);">
+    <div style="max-width:1320px;margin:0 auto;padding:clamp(64px,8vw,110px) clamp(20px,5vw,68px);">
+      <div style="margin-bottom:42px;" data-reveal>
+        <div style="font-family:'Archivo';font-weight:800;font-size:13px;letter-spacing:2.4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">Before your first session</div>
+        <h2 style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:clamp(30px,4vw,52px);line-height:.98;letter-spacing:-.02em;color:var(--ink);margin:0;text-transform:uppercase;">What players &amp; parents need</h2>
+      </div>
+      <div data-grid data-cols-sm="1fr" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;">
+        <div data-reveal style="background:#fff;border-radius:18px;padding:30px;border:1px solid rgba(27,24,56,.07);">
+          <div style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--azure);margin-bottom:14px;">Cricket kit</div>
+          <h3 style="font-family:'Archivo';font-weight:800;font-size:19px;color:var(--ink);margin:0 0 12px;">What to bring</h3>
+          <div style="display:flex;flex-direction:column;gap:9px;">
+            <div style="display:flex;gap:9px;font-size:14px;color:var(--ink);"><span style="color:var(--gold);font-weight:800;">✓</span>Your own bat &amp; protective gear (helmet)</div>
+            <div style="display:flex;gap:9px;font-size:14px;color:var(--ink);"><span style="color:var(--gold);font-weight:800;">✓</span>Academy jersey &amp; sports shoes</div>
+            <div style="display:flex;gap:9px;font-size:14px;color:var(--ink);"><span style="color:var(--gold);font-weight:800;">✓</span>Water &amp; sun protection</div>
+            <div style="display:flex;gap:9px;font-size:14px;color:var(--muted);"><span style="color:var(--azure);font-weight:800;">i</span>WCI provides balls, stumps &amp; drill gear</div>
+          </div>
+        </div>
+        <div data-reveal data-reveal-delay="100" style="background:#fff;border-radius:18px;padding:30px;border:1px solid rgba(27,24,56,.07);">
+          <div style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--azure);margin-bottom:14px;">For parents</div>
+          <h3 style="font-family:'Archivo';font-weight:800;font-size:19px;color:var(--ink);margin:0 0 12px;">At the ground</h3>
+          <div style="display:flex;flex-direction:column;gap:9px;">
+            <div style="display:flex;gap:9px;font-size:14px;color:var(--ink);"><span style="color:var(--gold);font-weight:800;">✓</span>Parents' area with guest wi-fi</div>
+            <div style="display:flex;gap:9px;font-size:14px;color:var(--ink);"><span style="color:var(--gold);font-weight:800;">✓</span>Games live-streamed &amp; archived for analysis</div>
+            <div style="display:flex;gap:9px;font-size:14px;color:var(--ink);"><span style="color:var(--gold);font-weight:800;">✓</span>Sessions at RRCG &amp; Williamson County grounds</div>
+            <div style="display:flex;gap:9px;font-size:14px;color:var(--muted);"><span style="color:var(--azure);font-weight:800;">i</span>Fields follow City &amp; County schedules</div>
+          </div>
+        </div>
+        <div data-reveal data-reveal-delay="200" style="background:#fff;border-radius:18px;padding:30px;border:1px solid rgba(27,24,56,.07);">
+          <div style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--azure);margin-bottom:14px;">Development</div>
+          <h3 style="font-family:'Archivo';font-weight:800;font-size:19px;color:var(--ink);margin:0 0 12px;">How we track progress</h3>
+          <div style="display:flex;flex-direction:column;gap:9px;">
+            <div style="display:flex;gap:9px;font-size:14px;color:var(--ink);"><span style="color:var(--gold);font-weight:800;">✓</span>An Individual Development Plan per player</div>
+            <div style="display:flex;gap:9px;font-size:14px;color:var(--ink);"><span style="color:var(--gold);font-weight:800;">✓</span>AI-driven drill recommendations (CoachED)</div>
+            <div style="display:flex;gap:9px;font-size:14px;color:var(--ink);"><span style="color:var(--gold);font-weight:800;">✓</span>Video analysis with GKC coaches</div>
+            <div style="display:flex;gap:9px;font-size:14px;color:var(--muted);"><span style="color:var(--azure);font-weight:800;">i</span>Webinars &amp; parent guidance sessions</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="max-width:920px;margin:0 auto;padding:clamp(70px,9vw,120px) clamp(20px,5vw,68px);">
+    <div style="text-align:center;margin-bottom:46px;" data-reveal>
+      <div style="font-family:'Archivo';font-weight:800;font-size:13px;letter-spacing:2.4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">Questions</div>
+      <h2 style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:clamp(30px,4vw,52px);line-height:.98;letter-spacing:-.02em;color:var(--ink);margin:0;text-transform:uppercase;">Frequently asked</h2>
+    </div>
+    <div data-reveal style="display:flex;flex-direction:column;gap:12px;">
+      <details data-faq style="background:#fff;border-radius:14px;border:1px solid rgba(27,24,56,.08);padding:0;">
+        <summary style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 24px;font-family:'Archivo';font-weight:800;font-size:17px;color:var(--ink);">How do we get started?<span data-plus style="font-family:'Archivo';font-weight:900;font-size:24px;color:var(--gold);line-height:1;">+</span></summary>
+        <div style="padding:0 24px 22px;font-size:14.5px;line-height:1.6;color:var(--muted);">Register for a free Basic Membership and attend a tryout session. After that, become a Premium Member ($120/year) to unlock coaching and games, then register for Group Training &amp; Games. Separate registration is required for Premium and for Group Training &amp; Games.</div>
+      </details>
+      <details data-faq style="background:#fff;border-radius:14px;border:1px solid rgba(27,24,56,.08);padding:0;">
+        <summary style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 24px;font-family:'Archivo';font-weight:800;font-size:17px;color:var(--ink);">What does it cost?<span data-plus style="font-family:'Archivo';font-weight:900;font-size:24px;color:var(--gold);line-height:1;">+</span></summary>
+        <div style="padding:0 24px 22px;font-size:14.5px;line-height:1.6;color:var(--muted);">Premium Membership is $120/year (non-refundable). Group Training &amp; Games is a monthly subscription — $300/month for 12 sessions (roughly 2 group trainings + 1 game per week), and ranges $299–$399/month depending on sessions per week. Prefer to drop in? Around $30 per training session and $30 per game.</div>
+      </details>
+      <details data-faq style="background:#fff;border-radius:14px;border:1px solid rgba(27,24,56,.08);padding:0;">
+        <summary style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 24px;font-family:'Archivo';font-weight:800;font-size:17px;color:var(--ink);">Can I register more than one child?<span data-plus style="font-family:'Archivo';font-weight:900;font-size:24px;color:var(--gold);line-height:1;">+</span></summary>
+        <div style="padding:0 24px 22px;font-size:14.5px;line-height:1.6;color:var(--muted);">Yes. After you register one player, the Review page offers "Register Another Person," which takes you back to the start to register a second (or more) child.</div>
+      </details>
+      <details data-faq style="background:#fff;border-radius:14px;border:1px solid rgba(27,24,56,.08);padding:0;">
+        <summary style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 24px;font-family:'Archivo';font-weight:800;font-size:17px;color:var(--ink);">What about make-ups &amp; cancellations?<span data-plus style="font-family:'Archivo';font-weight:900;font-size:24px;color:var(--gold);line-height:1;">+</span></summary>
+        <div style="padding:0 24px 22px;font-size:14.5px;line-height:1.6;color:var(--muted);">There are no make-up sessions for missed classes. Subscriptions can be cancelled on a 30-day notice, effective after the next monthly payment cycle. The $120 annual membership fee is non-refundable.</div>
+      </details>
+      <details data-faq style="background:#fff;border-radius:14px;border:1px solid rgba(27,24,56,.08);padding:0;">
+        <summary style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 24px;font-family:'Archivo';font-weight:800;font-size:17px;color:var(--ink);">Where can I get the detailed LTAD plan?<span data-plus style="font-family:'Archivo';font-weight:900;font-size:24px;color:var(--gold);line-height:1;">+</span></summary>
+        <div style="padding:0 24px 22px;font-size:14.5px;line-height:1.6;color:var(--muted);">A detailed version with recommended goals and activities for both boys and girls is available from WCI Academy. Email contact@wcicricket.com or WhatsApp 512-200-3042 and we'll share it.</div>
+      </details>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="position:relative;overflow:hidden;background:linear-gradient(120deg,var(--gold) 0%,#ffb347 60%,#ff9e1b 100%);">
+    <div style="position:absolute;right:6%;bottom:-90px;font-family:'Archivo';font-style:italic;font-weight:900;font-size:18vw;color:rgba(21,19,47,.06);line-height:.8;pointer-events:none;">WCI</div>
+    <div style="max-width:1100px;margin:0 auto;padding:clamp(60px,8vw,100px) clamp(20px,5vw,68px);position:relative;z-index:2;text-align:center;" data-reveal>
+      <h2 style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:clamp(32px,4.6vw,64px);line-height:.95;letter-spacing:-.025em;color:var(--navy);margin:0 0 16px;text-transform:uppercase;">Still have questions?</h2>
+      <p style="font-size:clamp(16px,1.3vw,19px);line-height:1.55;color:rgba(21,19,47,.78);max-width:540px;margin:0 auto 30px;">We reply to email and WhatsApp the same day. Or just come see us at a free tryout.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="Register.dc.html" style="font-family:'Archivo';font-weight:800;font-size:15px;letter-spacing:.4px;text-transform:uppercase;text-decoration:none;color:#fff;background:var(--navy);padding:18px 36px;border-radius:46px;box-shadow:0 14px 40px rgba(21,19,47,.3);transition:transform .2s,box-shadow .2s;" style-hover="transform:translateY(-3px);box-shadow:0 20px 52px rgba(21,19,47,.42);">Book a Free Tryout →</a>
+        <a href="mailto:contact@wcicricket.com" style="font-family:'Archivo';font-weight:800;font-size:15px;letter-spacing:.4px;text-transform:uppercase;text-decoration:none;color:var(--navy);background:rgba(255,255,255,.55);border:1.5px solid var(--navy);padding:18px 36px;border-radius:46px;transition:background .2s;" style-hover="background:rgba(255,255,255,.9);">Email us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:var(--navy);color:#fff;">
+    <div style="max-width:1320px;margin:0 auto;padding:clamp(56px,7vw,90px) clamp(20px,5vw,68px) 40px;">
+      <div data-grid data-cols-sm="1fr 1fr" style="display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:40px;">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+            <span style="width:42px;height:42px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;"><img src="img/logo-youth-sq.png" alt="WCI Academy" style="width:118%;height:118%;object-fit:contain;"></span>
+            <span style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:20px;color:#fff;">WCI <span style="color:var(--gold);">ACADEMY</span></span>
+          </div>
+          <p style="font-size:14px;line-height:1.6;color:rgba(255,255,255,.55);max-width:34ch;margin:0 0 18px;">Youth Cricket Academy for High-Performance. A registered youth academy of USA Cricket, headquartered in Austin, TX.</p>
+          <div style="display:flex;gap:10px;">
+            <span style="font-family:'Archivo';font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.14);padding:6px 12px;border-radius:30px;">USA Cricket</span>
+            <span style="font-family:'Archivo';font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.14);padding:6px 12px;border-radius:30px;">ICC · USOC</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Archivo';font-weight:800;font-size:12px;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Explore</div>
+          <div style="display:flex;flex-direction:column;gap:11px;">
+            <a href="About.dc.html" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;">About &amp; Coaches</a>
+            <a href="Programs.dc.html" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;">Programs &amp; Pricing</a>
+            <a href="Locations.dc.html" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;">Locations</a>
+            <a href="Resources.dc.html" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;">Resources</a>
+            <a href="Register.dc.html" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;">Register</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Archivo';font-weight:800;font-size:12px;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Follow</div>
+          <div style="display:flex;flex-direction:column;gap:11px;">
+            <a href="https://www.instagram.com/wciacademy/" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;">Instagram</a>
+            <a href="https://www.youtube.com/@wciacademy" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;">YouTube</a>
+            <a href="https://www.facebook.com/WCICricketAcademy/" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;">Facebook</a>
+            <a href="https://www.linkedin.com/company/wcicricket" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;">LinkedIn</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Archivo';font-weight:800;font-size:12px;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Get in touch</div>
+          <a href="mailto:contact@wcicricket.com" style="font-size:14.5px;color:rgba(255,255,255,.7);text-decoration:none;display:block;margin-bottom:10px;">contact@wcicricket.com</a>
+          <a href="tel:5122003042" style="font-family:'Archivo';font-style:italic;font-weight:900;font-size:22px;color:#fff;text-decoration:none;display:block;margin-bottom:14px;">512-200-3042</a>
+          <a href="Register.dc.html" style="display:inline-block;font-family:'Archivo';font-weight:800;font-size:13px;letter-spacing:.3px;text-transform:uppercase;text-decoration:none;color:var(--navy);background:var(--gold);padding:12px 22px;border-radius:40px;">Book a Free Tryout</a>
+        </div>
+      </div>
+      <div style="margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+        <span style="font-size:12.5px;color:rgba(255,255,255,.4);">© 2026 WCI Academy · World Cricket Initiative. All rights reserved. · Made by Soham Sthitpragya</span>
+        <span style="font-size:12.5px;color:rgba(255,255,255,.4);">Powered by Gary Kirsten Cricket &amp; CoachED · In partnership with Super Kings Academy</span>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const q = (s) => Array.from(document.querySelectorAll(s));
+    const nav = document.querySelector('[data-nav]');
+    const onScroll = () => { const y = window.scrollY||window.pageYOffset; if (nav) { nav.style.paddingTop=y>30?'12px':'14px'; nav.style.paddingBottom=y>30?'12px':'14px'; } };
+    window.addEventListener('scroll', onScroll, { passive: true }); onScroll(); this._onScroll = onScroll;
+    const menu = document.querySelector('[data-menu]');
+    const toggle = document.querySelector('[data-menu-toggle]');
+    if (toggle && menu) { let open=false; const set=(v)=>{open=v;menu.style.transform=v?'translateX(0)':'translateX(100%)';}; toggle.addEventListener('click',()=>set(!open)); menu.querySelectorAll('a').forEach((a)=>a.addEventListener('click',()=>set(false))); }
+    const applyResponsive = () => {
+      const small = window.innerWidth < 980;
+      const links = document.querySelector('[data-navlinks]'); const ctaNav = document.querySelector('[data-cta-nav]');
+      if (links) links.style.display = small ? 'none' : 'flex';
+      if (ctaNav) ctaNav.style.display = small ? 'none' : 'inline-flex';
+      if (toggle) toggle.style.display = small ? 'flex' : 'none';
+      q('[data-grid]').forEach((e) => { if (e.dataset.colsLg === undefined) e.dataset.colsLg = e.style.gridTemplateColumns || ''; e.style.gridTemplateColumns = small ? (e.getAttribute('data-cols-sm') || '1fr') : e.dataset.colsLg; });
+    };
+    applyResponsive(); window.addEventListener('resize', applyResponsive); this._onResize = applyResponsive;
+    const reveals = q('[data-reveal]');
+    reveals.forEach((el) => { el.style.opacity='0'; el.style.transform='translateY(40px)'; el.style.transition='opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1)'; });
+    const io = new IntersectionObserver((entries) => { entries.forEach((e) => { if (e.isIntersecting) { const d=parseInt(e.target.getAttribute('data-reveal-delay')||'0',10); setTimeout(()=>{e.target.style.opacity='1';e.target.style.transform='none';},d); io.unobserve(e.target); } }); }, { threshold: 0.12 });
+    reveals.forEach((el) => io.observe(el));
+  }
+  componentWillUnmount() { if (this._onScroll) window.removeEventListener('scroll', this._onScroll); if (this._onResize) window.removeEventListener('resize', this._onResize); }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
