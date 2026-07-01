@@ -80,9 +80,21 @@ a, p, h1, h2, h3, li, span { overflow-wrap: break-word; }
   [style*="letter-spacing: 2.4px"] { letter-spacing: 1px !important; }
   [style*="display: inline-flex"][style*="border-radius: 40px"] { flex-wrap: wrap; }
 
-  /* --- floating accent cards: pull back inside the viewport --- */
-  [style*="left: -30px"]  { left: 4px !important; }
-  [style*="right: -34px"] { right: 4px !important; top: auto !important; bottom: 14px !important; }
+  /* --- floating accent cards: anchor inside the image frame so they
+     never collide with the stat row above or the caption below --- */
+  [style*="left: -30px"] {
+    top: 14px !important;
+    left: 14px !important;
+    padding: 10px 14px !important;
+  }
+  [style*="right: -34px"] {
+    bottom: 14px !important;
+    right: 14px !important;
+    padding: 10px 14px !important;
+  }
+  /* hero image caption: reserve room on the right so "Austin Blasters"
+     wraps before it runs under the "4 Cities" badge */
+  [style*="bottom: 22px"][style*="right: 22px"] { padding-right: 150px; }
 
   /* mobile menu links: keep from overflowing on narrow phones */
   [data-menu] a { font-size: 30px !important; }
