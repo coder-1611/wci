@@ -1,0 +1,99 @@
+/* ============================================================
+   WCI Academy — responsive layer
+   Loaded on every page. Pages use inline styles that React
+   (support.js) re-serializes on hydration as "prop: value"
+   with a space after ':' and after commas inside functions
+   (e.g. "repeat(3, 1fr)", "clamp(44px, 5.6vw, 86px)") and with
+   leading zeros (".95fr" -> "0.95fr"). The [style*=...] selectors
+   below MUST match that normalized format. !important overrides
+   the element's own inline style.
+   ============================================================ */
+
+/* ---- Global blow-out prevention (all viewports) -----------
+   Grid/flex children default to min-width:auto, so a long word
+   forces its track wider than the viewport and the text gets
+   clipped by the page's overflow-x:hidden. min-width:0 lets it
+   wrap instead of running off-screen. */
+[style*="grid-template-columns"] > *,
+[style*="display: flex"] > * { min-width: 0; }
+
+img, svg, video, canvas { max-width: 100%; }
+[style*="display: inline-flex"] { max-width: 100%; }
+
+/* long unbreakable strings (emails, URLs) wrap instead of overflow */
+a, p, h1, h2, h3, li, span { overflow-wrap: break-word; }
+
+/* ============================================================
+   TABLET / SMALL LAPTOP  (≤ 1000px)
+   The JS stacker only covers Home's data-* grids, so stack the
+   raw inline grids the other pages use here too.
+   ============================================================ */
+@media (max-width: 1000px) {
+  /* content + media split layouts → single column */
+  [style*="grid-template-columns: 1.05fr 0.95fr"],
+  [style*="grid-template-columns: 1.1fr 0.9fr"],
+  [style*="grid-template-columns: 1.1fr 1fr"],
+  [style*="grid-template-columns: 1.4fr 1fr"],
+  [style*="grid-template-columns: 1.6fr 1fr 1fr 1.2fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* dense card rows → at most 3 / 2 wide */
+  [style*="grid-template-columns: repeat(7, 1fr)"] { grid-template-columns: repeat(3, 1fr) !important; }
+  [style*="grid-template-columns: repeat(4, 1fr)"] { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* ============================================================
+   PHONE  (≤ 640px)
+   ============================================================ */
+@media (max-width: 640px) {
+
+  /* --- collapse remaining multi-column grids --- */
+  [style*="grid-template-columns: repeat(3, 1fr)"],
+  [style*="grid-template-columns: repeat(4, 1fr)"],
+  [style*="grid-template-columns: repeat(7, 1fr)"],
+  [style*="grid-template-columns: 1.6fr 1fr 1fr 1.2fr"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+  /* tighten gaps so two-up cards still fit */
+  [style*="grid-template-columns"] { gap: 16px !important; }
+
+  /* --- hero --- */
+  [style*="min-height: 100vh"] {
+    min-height: auto !important;
+    padding-top: 104px !important;
+    padding-bottom: 56px !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+  /* giant italic display headline: scale down so it wraps in-frame.
+     NB: this build's CSS engine drops clamp() in author rules (it is
+     honoured inline only), so overrides use plain px at breakpoints. */
+  [style*="clamp(44px, 5.6vw, 86px)"] { font-size: 30px !important; }
+  /* largest section headings */
+  [style*="clamp(40px, 4.6vw, 64px)"] { font-size: 30px !important; }
+  /* decorative oversized ghost word behind hero */
+  [style*="font-size: 23vw"] { font-size: 80px !important; }
+
+  /* --- eyebrow / pill badges: shorter tracking + wrapping --- */
+  [style*="letter-spacing: 1.6px"] { letter-spacing: 0.5px !important; }
+  [style*="letter-spacing: 2.4px"] { letter-spacing: 1px !important; }
+  [style*="display: inline-flex"][style*="border-radius: 40px"] { flex-wrap: wrap; }
+
+  /* --- floating accent cards: pull back inside the viewport --- */
+  [style*="left: -30px"]  { left: 4px !important; }
+  [style*="right: -34px"] { right: 4px !important; top: auto !important; bottom: 14px !important; }
+
+  /* mobile menu links: keep from overflowing on narrow phones */
+  [data-menu] a { font-size: 30px !important; }
+}
+
+/* very small phones — single-column + a touch smaller display type */
+@media (max-width: 400px) {
+  [style*="clamp(44px, 5.6vw, 86px)"] { font-size: 26px !important; }
+  [style*="grid-template-columns: repeat(3, 1fr)"],
+  [style*="grid-template-columns: repeat(4, 1fr)"],
+  [style*="grid-template-columns: 1.6fr 1fr 1fr 1.2fr"] {
+    grid-template-columns: 1fr !important;
+  }
+}
